@@ -28,6 +28,7 @@ async (req, res, next) => {
         }
         else if (bcrypt.compareSync(req.body.password, entity.password)) {
           res.send({
+            name:entity.name,
             jwt: toJWT({ userId: entity.id })
           });
         } else {
