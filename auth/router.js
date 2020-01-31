@@ -6,10 +6,10 @@ const bcrypt = require("bcrypt");
 
 router.post("/login", 
 async (req, res, next) => {
-  const name = req.body.name;
+  const email = req.body.email;
   const password = req.body.password;
 
-  if (!name || !password) {
+  if (!email || !password) {
     res.status(400).send({
       message: "Please supply a valid name and password"
     });
@@ -17,7 +17,7 @@ async (req, res, next) => {
 
     User.findOne({
       where: {
-        name: req.body.name
+        email: req.body.email
       }
     })
       .then(entity => {
@@ -28,6 +28,7 @@ async (req, res, next) => {
         }
         else if (bcrypt.compareSync(req.body.password, entity.password)) {
           res.send({
+            name:entity.name,
             jwt: toJWT({ userId: entity.id })
           });
         } else {
