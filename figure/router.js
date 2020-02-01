@@ -5,11 +5,12 @@ const User = require("../user/model");
 const { toData } = require("../auth/jwt");
 const Player = require("../player/model");
 const Sequelize = require("sequelize");
-const checkBishop = require("../validation/Rook");
+const checkRook = require("../validation/Rook");
 const checkPawn = require("../validation/Pawn");
 const checkKnight = require("../validation/Knight");
 const checkKing = require("../validation/King");
 const checkQueen = require("../validation/Queen");
+const checkBishop=require("../validation/Bishop")
 
 function factory(stream) {
   const router = new Router();
