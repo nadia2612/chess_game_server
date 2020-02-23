@@ -12,7 +12,6 @@ This application is built using NodeJS and PosgreSQL, with the help of following
 
 - ExpressJs
 - Sequelize
-- Node.js
 - SSE
 
 ##  Spinning up
